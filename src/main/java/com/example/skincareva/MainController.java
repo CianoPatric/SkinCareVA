@@ -13,6 +13,7 @@ public class MainController {
     @FXML private TableColumn<Product, String> nameColumn;
     @FXML private TableColumn<Product, String> typeColumn;
     @FXML private TableColumn<Product, String> descriptionColumn;
+    @FXML private TableColumn<Product, Void> favColumn;
     @FXML private Label recommendationLabel;
 
     @FXML
@@ -21,6 +22,29 @@ public class MainController {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        favColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button favBtn = new Button("❤");
+            {
+                favBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #E76F51; -fx-cursor: hand; -fx-font-size: 14px;");
+                favBtn.setOnAction(event -> {
+                    Product product = getTableView().getItems().get(getIndex());
+                    try {
+                        SupabaseService.addFavorite(product.getId());
+                        favBtn.setText("✔");
+                        favBtn.setDisable(true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) setGraphic(null);
+                else setGraphic(favBtn);
+            }
+        });
     }
 
     //Кнопка показа рекомендаций
@@ -68,5 +92,10 @@ public class MainController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void goToProfile() throws Exception {
+        Main.setScene("profile.fxml");
     }
 }

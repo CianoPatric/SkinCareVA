@@ -1,6 +1,7 @@
 package com.example.skincareva;
 
 public class Product {
+    private int id;
     private String name;
     private String type;
     private String description;
@@ -8,9 +9,12 @@ public class Product {
     private String gender;
     private int min_age;
 
+    public int getId() {return id;}
+
     public Product() {}
 
-    public Product(String name, String type, String description, String skin_type, String gender, int min_age){
+    public Product(int id, String name, String type, String description, String skin_type, String gender, int min_age){
+        this.id = id;
         this.name = name;
         this.type = type;
         this.description = description;

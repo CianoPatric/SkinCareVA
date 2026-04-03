@@ -8,6 +8,7 @@
 
     <HBox alignment="CENTER_LEFT" spacing="20">
         <Button text="← Назад" onAction="#handleBack" styleClass="secondary-button"/>
+        <Button text="Профиль" onAction="#goToProfile" styleClass="secondary-button"/>
         <Region HBox.hgrow="ALWAYS" />
         <Label text="Персональный уход" styleClass="header-label"/>
         <Region HBox.hgrow="ALWAYS" />
@@ -33,6 +34,7 @@
             <TableColumn fx:id="nameColumn" text="Название" prefWidth="200"/>
             <TableColumn fx:id="typeColumn" text="Категория" prefWidth="120"/>
             <TableColumn fx:id="descriptionColumn" text="О препарате" prefWidth="400"/>
+            <TableColumn fx:id="favColumn" text="❤" prefWidth="40"/>
         </columns>
     </TableView>
 

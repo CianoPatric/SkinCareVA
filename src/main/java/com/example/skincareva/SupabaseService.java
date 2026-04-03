@@ -96,4 +96,30 @@ public class SupabaseService {
             UserSession.gender = p.get("gender").getAsString();
         }
     }
+    //Сохранить продукт
+    public static void addFavorite(int productId) throws Exception {
+        String json = "{\"user_id\":\"" + UserSession.id + "\", \"product_id\":" + productId + "}";
+        HttpRequest req = HttpRequest.newBuilder()
+                .uri(URI.create(URL + "/rest/v1/favorites"))
+                .header("apikey", KEY)
+                .header("Authorization", "Bearer " + KEY)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+        client.send(req, HttpResponse.BodyHandlers.ofString());
+    }
+
+    // Получить избранные продукты
+    public static List<Product> getFavorites() throws Exception {
+        // Этот хитрый запрос говорит Supabase: "Дай мне продукты, которые есть в таблице favorites для этого юзера"
+        String uri = URL + "/rest/v1/products?select=*,favorites!inner(user_id)&favorites.user_id=eq." + UserSession.id;
+        HttpRequest req = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .header("apikey", KEY)
+                .header("Authorization", "Bearer " + KEY)
+                .GET().build();
+        HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandlers.ofString());
+        Product[] products = gson.fromJson(resp.body(), Product[].class);
+        return List.of(products);
+    }
 }
