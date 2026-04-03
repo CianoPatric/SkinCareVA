@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skincareva.RegisterController">
+    <VBox alignment="CENTER">
+        <VBox styleClass="form-container" spacing="15" alignment="CENTER" maxWidth="450">
+            <Label text="РЕГИСТРАЦИЯ" styleClass="header-label" style="-fx-font-size: 22px;"/>
+
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Email" style="-fx-font-size: 12px; -fx-text-fill: #888888;"/>
+                <TextField fx:id="emailField" promptText="Введите почту" prefHeight="35"/>
+            </VBox>
+
+            <HBox spacing="10">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Пароль" style="-fx-font-size: 12px; -fx-text-fill: #888888;"/>
+                    <PasswordField fx:id="passwordField" promptText="••••••••" prefHeight="35"/>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Повтор" style="-fx-font-size: 12px; -fx-text-fill: #888888;"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="••••••••" prefHeight="35"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Возраст" style="-fx-font-size: 12px; -fx-text-fill: #888888;"/>
+                    <TextField fx:id="ageField" promptText="Напр: 25" prefHeight="35"/>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Пол" style="-fx-font-size: 12px; -fx-text-fill: #888888;"/>
+                    <ComboBox fx:id="genderComboBox" promptText="Выберите..." prefWidth="200" prefHeight="35"/>
+                </VBox>
+            </HBox>
+
+            <Separator prefWidth="200">
+                <padding><Insets top="10" bottom="10"/></padding>
+            </Separator>
+
+            <Button text="СОЗДАТЬ АККАУНТ" onAction="#handleRegister" prefWidth="350" prefHeight="45"/>
+            <Button text="ОТМЕНА" onAction="#goBack" prefWidth="350" styleClass="secondary-button"/>
+        </VBox>
+    </VBox>
+</StackPane>
