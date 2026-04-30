@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox spacing="20" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skincareva.ProfileController">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Button text="← К поиску" onAction="#goToMain" styleClass="secondary-button"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="ЛИЧНЫЙ КАБИНЕТ" styleClass="header-label" style="-fx-font-size: 20px;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Выйти из аккаунта" onAction="#handleLogout" style="-fx-background-color: #E76F51;"/>
+    </HBox>
+
+    <HBox spacing="30" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="form-container" prefWidth="300" alignment="TOP_CENTER">
+            <Circle radius="50" fill="#A3B18A" />
+            <Label fx:id="emailLabel" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+            <Separator />
+
+            <GridPane vgap="10" hgap="10" alignment="CENTER">
+                <Label text="Пол:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-text-fill: #888888;"/>
+                <Label fx:id="genderLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+
+                <Label text="Возраст:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-text-fill: #888888;"/>
+                <Label fx:id="ageLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+            </GridPane>
+        </VBox>
+
+        <VBox spacing="15" HBox.hgrow="ALWAYS" styleClass="form-container">
+            <Label text="МОИ ЗАКЛАДКИ" style="-fx-font-weight: bold; -fx-font-size: 18px;"/>
+            <TableView fx:id="favoritesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="favNameColumn" text="Название" prefWidth="150"/>
+                    <TableColumn fx:id="favTypeColumn" text="Тип" prefWidth="100"/>
+                </columns>
+            </TableView>
+            <Label text="* Чтобы сохранить продукт, нажмите на него дважды в поиске" style="-fx-font-size: 10px; -fx-text-fill: #999999;"/>
+        </VBox>
+    </HBox>
+</VBox>

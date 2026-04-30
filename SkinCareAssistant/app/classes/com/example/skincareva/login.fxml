@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skincareva.LoginController">
+    <VBox alignment="CENTER" spacing="25">
+        <VBox styleClass="form-container" spacing="20" alignment="CENTER">
+            <Label text="ВХОД" styleClass="header-label" style="-fx-font-size: 22px;"/>
+
+            <VBox spacing="10">
+                <Label text="Электронная почта" style="-fx-text-fill: #888888;"/>
+                <TextField fx:id="emailField" promptText="example@mail.com" prefHeight="40"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <Label text="Пароль" style="-fx-text-fill: #888888;"/>
+                <PasswordField fx:id="passwordField" promptText="••••••••" prefHeight="40"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-text" wrapText="true"/>
+
+            <Button text="ВОЙТИ" onAction="#handleLogin" prefWidth="300" prefHeight="45"/>
+            <Button text="НАЗАД" onAction="#goBack" prefWidth="300" styleClass="secondary-button"/>
+        </VBox>
+    </VBox>
+</StackPane>

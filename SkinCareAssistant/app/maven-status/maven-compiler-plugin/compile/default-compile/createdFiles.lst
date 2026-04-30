@@ -1,0 +1,11 @@
+com\example\skincareva\Product.class
+com\example\skincareva\ProfileController.class
+com\example\skincareva\Main.class
+com\example\skincareva\StartController.class
+com\example\skincareva\UserSession.class
+com\example\skincareva\LoginController.class
+com\example\skincareva\SupabaseService.class
+module-info.class
+com\example\skincareva\MainController.class
+com\example\skincareva\MainController$1.class
+com\example\skincareva\RegisterController.class

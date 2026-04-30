@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" alignment="TOP_CENTER" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skincareva.MainController">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Button text="← Назад" onAction="#handleBack" styleClass="secondary-button"/>
+        <Button text="Профиль" onAction="#goToProfile" styleClass="secondary-button"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="Персональный уход" styleClass="header-label"/>
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15;">
+        <Label text="Ваш тип кожи:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="skinTypeComboBox" prefWidth="300" promptText="Нажмите, чтобы выбрать..."/>
+
+        <HBox spacing="15" alignment="CENTER">
+            <CheckBox fx:id="drynessCheckBox" text="Сухость"/>
+            <CheckBox fx:id="oilinessCheckBox" text="Жирность"/>
+            <CheckBox fx:id="acneCheckBox" text="Акне"/>
+            <CheckBox fx:id="sensitivityCheckBox" text="Чувствительность"/>
+            <CheckBox fx:id="wrinklesCheckBox" text="Морщины"/>
+        </HBox>
+
+        <Button text="Подобрать идеальный уход" onAction="#handleRecommendation" prefWidth="300"/>
+    </VBox>
+
+    <TableView fx:id="productsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Название" prefWidth="200"/>
+            <TableColumn fx:id="typeColumn" text="Категория" prefWidth="120"/>
+            <TableColumn fx:id="descriptionColumn" text="О препарате" prefWidth="400"/>
+            <TableColumn fx:id="favColumn" text="❤" prefWidth="40"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="recommendationLabel" style="-fx-text-fill: #888888;"/>
+</VBox>

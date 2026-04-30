@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="30" alignment="CENTER" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skincareva.StartController">
+    <padding><Insets top="50" bottom="50"/></padding>
+
+    <VBox alignment="CENTER" spacing="5">
+        <Label text="SKINCARE" style="-fx-font-size: 40px; -fx-letter-spacing: 5px; -fx-text-fill: #A3B18A; -fx-font-weight: bold;"/>
+        <Label text="твой умный помощник в мире красоты" style="-fx-text-fill: #999999; -fx-font-style: italic;"/>
+    </VBox>
+
+    <VBox spacing="15" alignment="CENTER" maxWidth="300">
+        <Button text="ВОЙТИ" onAction="#goToAuth" prefWidth="250"/>
+        <Button text="СОЗДАТЬ АККАУНТ" onAction="#goToRegister" prefWidth="250" styleClass="secondary-button"/>
+        <Button text="ВЫХОД" onAction="#exitApp" prefWidth="250" style="-fx-background-color: #E76F51;"/>
+    </VBox>
+</VBox>
