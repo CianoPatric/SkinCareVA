@@ -24,7 +24,7 @@ class LogicTest {
                 .filter(p -> p.getSkinType().equalsIgnoreCase(selectedSkinType))
                 .filter(p -> p.getGender().equalsIgnoreCase("any") || p.getGender().equalsIgnoreCase(userGender))
                 .filter(p -> userAge >= p.getMinAge())
-                .collect(Collectors.toList());
+                .toList();
 
         assertEquals(1, filtered.size(), "Должен быть найден ровно 1 продукт");
         assertEquals("Мужской гель", filtered.get(0).getName());
